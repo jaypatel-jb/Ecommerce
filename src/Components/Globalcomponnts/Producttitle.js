@@ -1,12 +1,9 @@
 import React from 'react'
 import './Producttitle.css'
-import { useContext } from 'react';
-import { context } from 'D:/Bigproject/New folder/src/App';
 import { useNavigate} from 'react-router-dom'
 
 function Producttitle(props) {
     
-    let {  } = useContext(context)
     
 
     let navigate = useNavigate()

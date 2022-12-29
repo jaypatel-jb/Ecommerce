@@ -1,11 +1,11 @@
-import React, { useContext, useEffect } from 'react'
-import { context } from 'D:/Bigproject/New folder/src/App';
+import React, { useEffect } from 'react'
+// import { context } from 'D:/Bigproject/Ecommerce/src/App';
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
 function SinglePage() {
   const [productdata, setproductdata] = useState([])
-  let { } = useContext(context)
+  // let { } = useContext(context)
   const { ID } = useParams()
 
   useEffect(() => {

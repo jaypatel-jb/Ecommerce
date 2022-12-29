@@ -1,7 +1,7 @@
 import React from 'react'
 import Producttitle from '../Globalcomponnts/Producttitle'
 import { useContext } from 'react';
-import { context } from 'D:/Bigproject/New folder/src/App';
+import { context } from 'D:/Bigproject/Ecommerce/src/App';
 import './home.css'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
