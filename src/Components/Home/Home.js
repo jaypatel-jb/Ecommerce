@@ -5,48 +5,61 @@ import { context } from 'D:/Bigproject/Ecommerce/src/App';
 import './home.css'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-
 const responsive = {
     desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 1
+        breakpoint: { max: 3000, min: 1024 },
+        items: 1,
+        slidesToSlide: 1 // optional, default to 1.
     },
     tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 1
+        breakpoint: { max: 1024, min: 464 },
+        items: 1,
+        slidesToSlide: 1 // optional, default to 1.
     },
     mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1
+        breakpoint: { max: 464, min: 0 },
+        items: 1,
+        slidesToSlide: 1 // optional, default to 1.
     }
-  };
+};
 function Home() {
-  
-    let {ProductCategory } = useContext(context)
+
+    let { ProductCategory } = useContext(context)
 
     return (
         <>
 
-            <div className="slider">
-               <Carousel responsive={responsive}>
 
 
-                    <figure id='i1'>
-                        <img src="/images/ShopNow.png" alt="" />
-
-                    </figure>
-                    <figure id='i2'>
-
-                        <img src="/images/Menhad.png" alt="" />
-                    </figure>
+            <Carousel responsive={responsive}
+                swipeable={false}
+                draggable={false}
+                infinite={true}
+                autoPlay={true}
+                autoPlaySpeed={3000}
+                dotListClass="custom-dot-list-style"
+                itemClass="carousel-item-padding-40-px"
+                containerClass="carousel-container"
                 
-               </Carousel>
-            </div>
-           
+            >
+
+
+
+                <img src="/images/baner1.jpg" alt="" />
+                <img src="/images/baner3.webp" alt="" />
+
+
+
+
+
+
+            </Carousel>
+
+
 
             {
-                ProductCategory.map((elm,index) => {
-            
+                ProductCategory.map((elm, index) => {
+
                     return (
 
                         <div key={elm.id}>
@@ -64,3 +77,4 @@ function Home() {
 }
 
 export default Home
+
