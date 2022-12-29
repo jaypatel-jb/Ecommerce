@@ -1,0 +1,228 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    text-decoration: none;
+   
+}
+
+header {
+    /* border: 2px solid black; */
+    background-color: rgba(171, 200, 209, 0.441);
+    height: 20vh;
+    /* width: 100vw; */
+    display: flex;
+    justify-content: center;
+   
+
+}
+
+.logo {
+    /* border: 2px solid black; */
+    color: rgb(0, 217, 255);
+    width: fit-content;
+    height: fit-content;
+    cursor: pointer;
+    margin-left: 5px;
+
+}
+
+#search {
+    border: 1px solid rgb(95, 128, 136);
+    border-radius: 5px;
+}
+
+.searchbox {
+    /* border: 2px solid black; */
+    display: flex;
+}
+
+.ShoppingBasket {
+    color: rgb(0, 217, 255);
+    cursor: pointer;
+    margin-left: 5px;
+    margin-right: 10px;
+
+}
+
+.navbar {
+    display: flex;
+    border: 1px solid rgba(255, 255, 255, 0);
+    background-color: rgb(255, 255, 255);
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    height: 50px;
+    width: 80vw;
+    z-index: 10;
+    margin-top: 15px;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+    transition: all 0.5s;
+
+}
+
+.toggle {
+
+    width: 98vw;
+    position: fixed;
+    top: 0%;
+
+
+}
+
+.navlinks {
+    text-align: center;
+    transition: all 0.3s;
+
+    /* border: 2px solid black; */
+}
+
+.ullist {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+
+
+}
+
+.ullist li {
+    text-align: center;
+    font-family: 'Secular One', sans-serif;
+    list-style: none;
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+
+
+}
+
+.active {
+    color: rgb(0, 217, 255);
+
+}
+
+
+.listli:hover {
+    color: rgb(0, 217, 255);
+}
+
+#menu {
+
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    display: none;
+    margin-right: 10px;
+}
+
+#closeIcon {
+    display: none;
+}
+#Login_btn{
+    background-color: rgba(6, 136, 243, 0.823);
+    border: 1px solid rgba(6, 136, 243, 0.823);
+    border-radius: 5px;
+    padding: 3px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+
+@media (max-width: 600px) {
+
+    .ullist {
+        /* display: none; */
+        display: inline-block;
+        /* border: 2px solid black; */
+        font-size: 2rem;
+
+    }
+
+    .ullist li {
+        margin: 20px;
+
+    }
+
+
+    .navlinks {
+       display: none;
+        position: absolute;
+        justify-content: center;
+        top: 0%;
+        left: 0%;
+        width: 100vw;
+        height: 100vh;
+        border: 2px solid black;
+        z-index: 1;
+        background-color: aliceblue;
+        
+    }
+
+    .closebtn {
+      
+      display: block;
+        position: absolute;
+        justify-content: center;
+        top: 0%;
+        left: 0%;
+        width: 100vw;
+        height: 100vh;
+        border: 2px solid black;
+        z-index: 1;
+        background-color: aliceblue;
+        
+    }
+
+
+    header {
+        margin: 0%;
+        padding: 0%;
+        box-sizing: border-box;
+        width: 100vw;
+        border: 2px solid black;
+    }
+
+    .Hero_section {
+        width: 100%;
+    }
+
+    .searchbox {
+        margin: auto;
+
+    }
+
+
+    #menu {
+        display: inline-block;
+    }
+
+    #closeIcon {
+        display: inline-block;
+        position: relative;
+        top: -14rem;
+        right: -28vw;
+        font-size: 2rem;
+    }
+    #Login_btn{
+        padding: 6px;
+        height: 30%;
+        width: 40%;
+    }
+    .toggle {
+
+        width: 98vw;
+        /* height: 100vh; */
+        position:unset;
+        top: 0%;
+        left: 0%;
+    
+    
+    }
+    .ShoppingBasket{
+        display: block;
+        margin: auto;
+        margin-top: 30px;
+    }
+
+}

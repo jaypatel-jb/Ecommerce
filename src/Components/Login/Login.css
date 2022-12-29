@@ -1,0 +1,172 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-size: 1rem;
+
+
+}
+
+.Login_paage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #0093E9;
+    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+    ;
+    width: 100vw;
+    height: 100vh;
+}
+
+.Main_Login_box {
+    /* border: 2px solid teal; */
+    width: 50vw;
+    min-height: 50vh;
+    border-radius: 30px;
+    position: relative;
+    /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
+    background-color: white;
+}
+
+.Login_had {
+    /* position: relative; */
+    display: flex;
+    justify-content: center;
+    /* border: 1px solid rgb(21, 4, 253); */
+    border-radius: 30px 30px 0 0;
+    width: 100%;
+    height: 22%;
+}
+
+.Login_had span {
+    font-size: 2rem;
+    margin-top: 10%;
+}
+
+.Login_image {
+    position: absolute;
+    background: url('/public/images/loginimg.jpg');
+    background-position: center;
+    background-size: 48px;
+    background-repeat: no-repeat;
+    background-color: white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+    top: -24px;
+    width: 60px;
+    height: 54px;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 50%;
+    /* z-index: 1; */
+}
+.login_user{
+   
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    /* border: 2px solid rgb(228, 5, 5); */
+    width: 100%;
+    height: 78%;
+    border-radius: 0 0 30px 30px;
+}
+#Text_Email{
+    align-self: baseline;
+    margin-left: 5%;
+    margin-top: 5%;
+    
+}
+#Text_Password{
+    align-self: baseline;
+    margin-left: 5%;
+    margin-top: 1%;
+}
+
+#email,#password{
+    margin-top: 3%;
+    border-radius: 5px;
+    border: 1px solid rgb(12, 132, 206);
+    width: 90%;
+    height: 8%;
+}
+
+#Login_button{
+    width: 90%;
+    height: 9%;
+    margin-top: 19%;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    background-color: #30aadc;
+    cursor: pointer;
+}
+#Email_Error,#Password_Error{
+    width: 80%;
+    height: fit-content;
+    align-self: baseline;
+    font-size: 0.8rem;
+    color: red;
+    /* border: 1px solid rgb(0, 0, 0); */
+}
+
+.user_Action{
+    width: 100%;
+    height: 100%;
+    /* border: 2px solid rgb(228, 5, 5); */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0 0 30px 30px;
+    /* position: sticky;
+    top: 0;
+    left: 0; */
+}
+.user_Action span{
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 15px;
+    padding: 10px;
+    cursor: pointer;
+}
+.validateMessage{
+    /* border: 2px solid rgb(228, 5, 5); */
+    position: absolute;
+    border-radius: 19px;
+    width: 50%;
+    height: fit-content;
+    background-color: white;
+    text-align: justify;
+    z-index: -1;
+    top: 75.1%;
+    /* transition: all 1s; */
+    
+
+}
+
+.toggalMessage{
+    position: absolute;
+    border-radius: 19px;
+    width: 50%;
+    height: fit-content;
+    background-color: white;
+    text-align: justify;
+    top: 75.1%;
+    z-index: 1;
+    /* transition: all 1s; */
+    
+}
+.validateMessage,.toggalMessage p{
+    margin: 5px 0px 10px 10px;
+
+}
+.validateMessage,.toggalMessage h2{
+    margin: 5px 0px 10px 10px;
+}
+#cheak_lowerCaseLetters{
+    margin-top: 15px;
+}
+@media (max-width: 600px){
+    .user_Action span{
+        font-size: 0.8rem;
+    }
+}
