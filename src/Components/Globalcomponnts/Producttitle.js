@@ -1,23 +1,23 @@
 import React from 'react'
 import './Producttitle.css'
-import { useNavigate} from 'react-router-dom'
-
+import { useNavigate } from 'react-router-dom'
+import Product from './Product';
 function Producttitle(props) {
-    
-    
+
+
 
     let navigate = useNavigate()
 
-  
+
     function btnclick() {
 
         navigate(`singlepage/${props.products}`);
 
-        
+
 
     }
 
-
+    
     return (
         <>
             <div className={`main ${props.classname}`} >
@@ -29,32 +29,12 @@ function Producttitle(props) {
                     <button onClick={btnclick}> view All</button>
 
                 </div>
+                <div className="Allproduct">
+                    <Product forclick={props.products} data={props.alldata} />
+                </div>
             </div>
         </>
     )
 }
 
 export default Producttitle
-
-// {/* <div className={`main ${props.classname}`} >
-
-// <div className="Ptitle">
-
-//     <h1>{props.title}</h1>
-//     {/* <button onClick={()=>{navigate(props.to)}}> view All</button> */}
-
-// // </div>
-// // <div className="Allproduct">
-//     {/* <div className='pt1'>
-// <figure>
-// <img src={thumbail1[0].thumbnail} alt="Error" />
-// </figure>
-//     </div>
-//     <div className='pt2'>
-//     <figure>
-// <img src={thumbail2[0].thumbnail} alt="Error" />
-// </figure>
-//      </div> */}
-// //     <Product  classname="Full_page_product" click={props.click} productname={props.productname} />
-// // </div>
-// // </div> */}

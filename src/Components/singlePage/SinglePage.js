@@ -1,12 +1,15 @@
-import React, { useEffect } from 'react'
-// import { context } from 'D:/Bigproject/Ecommerce/src/App';
-import { useParams } from 'react-router-dom';
+import React, { useContext, useEffect } from 'react'
+import { context } from 'D:/Bigproject/Ecommerce/src/App';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
+
 function SinglePage() {
   const [productdata, setproductdata] = useState([])
-  // let { } = useContext(context)
-  const { ID } = useParams()
+  let { } = useContext(context)
+  let navigate = useNavigate()
+  const { ID} = useParams()
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,6 +20,7 @@ function SinglePage() {
     };
     fetchData();
   }, [ID]);
+
   return (
 
     <>
@@ -26,7 +30,9 @@ function SinglePage() {
           return (
             <div key={data.id}>
               <p>ok</p>
-              <img src={data.thumbnail} alt={data.title} />
+              <img onClick={() => {
+                navigate(`${data.id}`,)
+              }} src={data.thumbnail} alt={data.title} />
               <p>{data.title}</p>
               <p>{data.description}</p>
               <p>{data.price}</p>
@@ -41,6 +47,7 @@ function SinglePage() {
       ) : (
         <p>Loding...</p>
       )}
+   
     </>
 
 

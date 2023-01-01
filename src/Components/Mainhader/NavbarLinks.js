@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Outlet, Route, Routes } from 'react-router-dom';
 import Blog from '../blog/Blog';
 import Contact from '../contact/Contact';
 import Error from '../error/Error';
@@ -11,10 +11,12 @@ import Cart from '../cart/Cart';
 import Home from '../Home/Home';
 
 import SinglePage from '../singlePage/SinglePage';
+import SpecificProduct from '../singlePage/SpecificProduct';
+
 
 
 function Navbar1() {
- 
+
 
     return (
         <BrowserRouter>
@@ -29,6 +31,10 @@ function Navbar1() {
                 <Route path='/Cart' element={<Cart />} />
                 <Route path='*' element={<Error />} />
                 <Route path='singlepage/:ID' element={<SinglePage />} />
+                <Route  path='singlepage/:ID/:name' element={<SpecificProduct />} />
+
+
+
 
 
             </Routes>

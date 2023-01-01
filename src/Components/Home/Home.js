@@ -9,17 +9,17 @@ const responsive = {
     desktop: {
         breakpoint: { max: 3000, min: 1024 },
         items: 1,
-        slidesToSlide: 1 // optional, default to 1.
+        slidesToSlide: 1
     },
     tablet: {
         breakpoint: { max: 1024, min: 464 },
         items: 1,
-        slidesToSlide: 1 // optional, default to 1.
+        slidesToSlide: 1
     },
     mobile: {
         breakpoint: { max: 464, min: 0 },
         items: 1,
-        slidesToSlide: 1 // optional, default to 1.
+        slidesToSlide: 1
     }
 };
 function Home() {
@@ -28,35 +28,20 @@ function Home() {
 
     return (
         <>
-
-
-
             <Carousel responsive={responsive}
                 swipeable={false}
                 draggable={false}
                 infinite={true}
                 autoPlay={true}
-                autoPlaySpeed={3000}
+                autoPlaySpeed={6000}
                 dotListClass="custom-dot-list-style"
                 itemClass="carousel-item-padding-40-px"
-                containerClass="carousel-container"
-                
-            >
-
-
+                containerClass="carousel-container">
 
                 <img src="/images/baner1.jpg" alt="" />
                 <img src="/images/baner3.webp" alt="" />
 
-
-
-
-
-
             </Carousel>
-
-
-
             {
                 ProductCategory.map((elm, index) => {
 
@@ -64,7 +49,7 @@ function Home() {
 
                         <div key={elm.id}>
 
-                            <Producttitle products={elm.Name} />
+                            <Producttitle alldata={elm} products={elm.Name} />
                         </div>
                     )
                 })

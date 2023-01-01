@@ -1,31 +1,29 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './Product.css'
-import { context } from 'D:/Bigproject/Demo Ecommerce/src/App';
+import { context } from 'D:/Bigproject/Ecommerce/src/App';
 import { useContext } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 
 function Product(props) {
-    let { btnbox, data, } = useContext(context)
 
-
+    let { } = useContext(context)
+    let pdata = props.data.data
     let navigate = useNavigate()
-
-
+    function btnclick(ele, id) {
+        navigate(`singlepage/${props.forclick}/${ele.id}`)
+        
+    }
 
     return (
         <div className={`mainbox ${props.classname}`} >
             {
-                props.productname.map((ele, index) => {
+                pdata.map((ele, index) => {
 
                     return (
 
 
                         <div key={ele.id}
-                            onClick={() => {
-                                navigate(`singlepage/${ele.title}`);
-                                btnbox(ele)
-
-                            }} className="box">
+                            onClick={() => { btnclick(ele, ele.id) }} className="box">
                             <div className="image">
                                 <img src={ele.thumbnail} alt="error" />
                             </div>
