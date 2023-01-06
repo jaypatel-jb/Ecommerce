@@ -1,28 +1,27 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { context } from 'D:/Bigproject/Ecommerce/src/App';
-import { fatchProductcategory } from 'D:/Bigproject/Ecommerce/src/Redux/ProductCategoryslice'
+import { fatchSpecificproduct } from '../../Redux/Specificproductslice'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router';
 function SpecificProduct() {
   let { id } = useContext(context)
-  const {name} = useParams()
+  const { name } = useParams()
   let dispatch = useDispatch()
-  let productscetegory = useSelector((state) => state.productscetegory)
+  let Specificproduct = useSelector((state) => state.Specificproduct)
   useEffect(() => {
-    dispatch(fatchProductcategory(name))
+    dispatch(fatchSpecificproduct(name))
   }, [name])
-console.log(name);
   return (
     <>
-      {productscetegory.data ? (
+ 
         <div>
 
-          <p>{productscetegory.data .title}</p>
-          <p>{productscetegory.data .description}</p>
-          <img src={productscetegory.data.thumbnail} alt="" />
-        
+          <p>{Specificproduct.data.title}</p>
+          <p>{Specificproduct.data.description}</p>
+          <img src={Specificproduct.data.thumbnail} alt="" />
 
-        </div>) :<div>Loding...</div> }
+
+        </div>
 
 
     </>

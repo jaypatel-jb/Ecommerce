@@ -3,6 +3,8 @@ import { context } from 'D:/Bigproject/Ecommerce/src/App';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
+import { CircularProgress, LinearProgress } from '@mui/material';
+import './singlePage.css'
 
 function SinglePage() {
   const [productdata, setproductdata] = useState([])
@@ -45,9 +47,12 @@ function SinglePage() {
           )
         })
       ) : (
-        <p>Loding...</p>
+        <div className='Loder'> 
+
+        <CircularProgress/>
+        </div>
       )}
-   
+  
     </>
 
 

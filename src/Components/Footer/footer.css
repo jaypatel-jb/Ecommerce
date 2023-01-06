@@ -1,0 +1,151 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+footer {
+    background-color: #232f3e;
+}
+
+.footercontent {
+
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 35vh;
+    overflow-x: hidden;
+
+}
+
+.footercontent h2 {
+    font-size: 1.1rem;
+}
+
+/* a{
+    color: aliceblue;
+    margin: 7px;
+} */
+h2 {
+
+    font-size: 1.2rem;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+
+
+}
+
+.links a {
+    color: aliceblue;
+    /* margin: 7px; */
+
+}
+
+.Know_us {
+    /* border: 2px solid red; */
+    padding: 10px;
+    /* margin-right: 20px; */
+    width: 15%;
+    height: 90%;
+    align-self: flex-end;
+    text-align: center;
+}
+
+
+
+.Connect_us {
+    /* border: 2px solid rgb(255, 221, 0); */
+    padding: 10px;
+    margin-right: 20px;
+    margin-left: 20px;
+    /* display: flex; */
+   
+    height: 90%;
+    align-self: flex-end;
+    /* text-align: center; */
+}
+
+.socialmedia {
+    /* border: 2px solid rgb(255, 221, 0); */
+    width: 40px;
+    height: 80px;
+    margin: auto;
+    margin-top: 15px;
+
+
+
+}
+
+.socialmedia a {
+    color: aliceblue;
+    margin: 7px;
+
+}
+
+.make_Money {
+    /* border: 2px solid rgb(30, 0, 255); */
+    padding: 10px;
+    margin-right: 20px;
+    margin-left: 20px;
+
+    height: 90%;
+    align-self: flex-end;
+}
+
+.Help {
+    /* border: 2px solid rgb(0, 255, 42); */
+    padding: 10px;
+    /* margin-left: 10px; */
+    height: 90%;
+    align-self: flex-end;
+
+}
+
+#facebook:hover {
+    color: #4267B2;
+}
+
+#twitter:hover {
+    color: #1DA1F2;
+}
+
+#instagram:hover {
+    color: #C13584;
+}
+
+#brtag {
+    color: #ff0090;
+}
+
+@media (max-width: 600px) {
+
+    .footercontent h2 {
+        font-size: 0.5rem;
+        width: 100%;
+    }
+
+    .links a {
+        font-size: .5rem;
+    }
+
+    .Connect_us {
+        justify-content: center;
+    }
+
+    .Know_us,
+    .Connect_us,
+    .make_Money,
+    .Help {
+        width: 25%;
+        margin: 0%;
+
+
+    }
+
+}

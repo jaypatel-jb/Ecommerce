@@ -15,14 +15,14 @@ const Productcategoryslice = createSlice({
     name: "products",
     initialState,
     extraReducers: (builder) => {
-        builder.addCase(fatchProductcategory.pending, (state, action) => {
+        builder.addCase(fatchSpecificproduct.pending, (state, action) => {
             state.status = status.LODING
         })
-        builder.addCase(fatchProductcategory.fulfilled, (state, action) => {
+        builder.addCase(fatchSpecificproduct.fulfilled, (state, action) => {
             state.data = action.payload
             state.status = status.IDEL
         })
-        builder.addCase(fatchProductcategory.rejected, (state, action) => {
+        builder.addCase(fatchSpecificproduct.rejected, (state, action) => {
             state.status = status.ERROR
         })
     }
@@ -33,7 +33,7 @@ const Productcategoryslice = createSlice({
 export default Productcategoryslice.reducer
 
 
-export const fatchProductcategory = createAsyncThunk('productfetch/category', async (id,viewids) => {
+export const fatchSpecificproduct = createAsyncThunk('productfetch/specific', async (id,viewids) => {
     let link = `https://dummyjson.com/products/${id}/`;
     const res = await axios.get(link);
     const pdata = await res.data;

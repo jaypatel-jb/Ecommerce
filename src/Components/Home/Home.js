@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Producttitle from '../Globalcomponnts/Producttitle'
 import { useContext } from 'react';
 import { context } from 'D:/Bigproject/Ecommerce/src/App';
 import './home.css'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import { fatchProductcategories } from 'D:/Bigproject/Ecommerce/src/Redux/Productcategories';
+import { useDispatch, useSelector } from 'react-redux';
+
 const responsive = {
     desktop: {
         breakpoint: { max: 3000, min: 1024 },
@@ -23,7 +26,15 @@ const responsive = {
     }
 };
 function Home() {
+    // const dispatch = useDispatch()
+    // useEffect(() => {
+    //     dispatch(fatchProductcategories())
+    // }, [])
+    // let Productcategories = useSelector((state) => state.Productcategories)
 
+    
+    // let Filtercategories = Productcategories.data.slice(0, 10)
+    
     let { ProductCategory } = useContext(context)
 
     return (
@@ -38,8 +49,8 @@ function Home() {
                 itemClass="carousel-item-padding-40-px"
                 containerClass="carousel-container">
 
-                <img src="/images/baner1.jpg" alt="" />
-                <img src="/images/baner3.webp" alt="" />
+                <img id='img_1' src="/images/baner1.jpg" alt="baner-1" />
+                <img id='img_2' src="/images/baner3.webp" alt="baner-2" />
 
             </Carousel>
             {
@@ -55,7 +66,7 @@ function Home() {
                 })
             }
 
-
+            
 
         </>
     )

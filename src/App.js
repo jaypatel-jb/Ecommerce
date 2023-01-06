@@ -6,7 +6,6 @@ import Login from './Components/Login/Login';
 import NavbarLinks from './Components/Mainhader/NavbarLinks';
 import './Components/Section/Section.css'
 import ProductCategory from './Components/Data/ProductCategory'
-
 import { Provider } from 'react-redux';
 import store from './Redux/Store';
 export const context = createContext()

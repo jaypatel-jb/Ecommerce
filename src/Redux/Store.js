@@ -1,10 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
-import products from './Productsslice'
-import productscetegory from './ProductCategoryslice';
+import SpecificProductList from './SpecificProductList.js'
+import Specificproduct from './Specificproductslice';
+import Productcategories from './Productcategories';
 const store = configureStore({
     reducer: {
-        product: products,
-        productscetegory:productscetegory
+        SpecificProductList: SpecificProductList,
+        Specificproduct:Specificproduct,
+        Productcategories:Productcategories
+
     }
 })
 export default store

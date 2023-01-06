@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import Product from './Product';
 function Producttitle(props) {
 
+    
 
 
     let navigate = useNavigate()
