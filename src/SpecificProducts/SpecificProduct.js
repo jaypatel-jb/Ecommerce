@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { context } from 'D:/Bigproject/Ecommerce/src/App';
-import { fatchSpecificproduct } from '../../Redux/Specificproductslice'
+import { fatchSpecificproduct } from '../Redux/Specificproductslice'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router';
 function SpecificProduct() {

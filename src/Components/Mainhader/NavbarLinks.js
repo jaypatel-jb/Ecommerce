@@ -11,7 +11,7 @@ import Cart from '../cart/Cart';
 import Home from '../Home/Home';
 
 import SinglePage from '../singlePage/SinglePage';
-import SpecificProduct from '../singlePage/SpecificProduct';
+import SpecificProduct from '../../SpecificProducts/SpecificProduct';
 import Footer from '../Footer/Footer';
 
 
@@ -40,7 +40,7 @@ function Navbar1() {
 
             </Routes>
 
-        <Footer/>
+        {/* <Footer/> */}
         </BrowserRouter>
 
     )

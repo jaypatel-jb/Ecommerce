@@ -3,10 +3,72 @@
     padding: 0%;
     box-sizing: border-box;
 }
+
 .Loder{
+    /* border: 2px solid black; */
     width: 100vw;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+   
+}
+.Singlepage_Product{
+    border: 2px solid black;
+    height: 80vh;
+    display: flex;
+}
+.Product_view{
+    border: 2px solid rgb(255, 7, 7);
+    width: 20%;
+    height: 100%;
+}
+.Filter{
+    border: 2px solid rgb(2, 19, 255);
+    width: 80%;
+    height: 100%;
+}
+.Sort_View_filter{
+    border: 2px solid rgb(217, 255, 2);
+    width: 100%;
+    height: 10%;
+    display: flex;
+}
+.Icon_filter{
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    border: 2px solid rgb(0, 255, 255);
+    width: 33.33%;
+    height: 100%;
+}
+.GridViewRoundedIcon{
+    margin: 10px;
+    cursor: pointer;
+}
+.GridViewRoundedIcon:hover{
+    color: rgb(0, 165, 241);
+    background-color: rgb(234, 226, 226);
+}
+.No_of_Products{
+    border: 2px solid rgb(230, 0, 255);
+    width: 33.33%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.ReorderRoundedIcon{
+    margin: 10px;
+    cursor: pointer;
+}
+.ReorderRoundedIcon:hover{
+    color: rgb(0, 165, 241);
+    background-color: rgb(234, 226, 226);
+}
+.Sort_Filter{
+    border: 2px solid rgb(0, 5, 1);
+    width: 33.33%;
+    height: 100%;
+
 }
