@@ -33,7 +33,7 @@ const Productcategoryslice = createSlice({
 export default Productcategoryslice.reducer
 
 
-export const fatchSpecificproduct = createAsyncThunk('productfetch/specific', async (id,viewids) => {
+export const fatchSpecificproduct = createAsyncThunk('productfetch/specific', async (id) => {
     let link = `https://dummyjson.com/products/${id}/`;
     const res = await axios.get(link);
     const pdata = await res.data;

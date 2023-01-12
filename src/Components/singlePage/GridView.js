@@ -7,6 +7,10 @@ function GridView(props) {
     let { brand, id, thumbnail, title, description, price, discountPercentage, rating } = props.products
 
     let navigate = useNavigate()
+    const RupeePrice = Math.floor(price * 81.665)
+    
+    let currencyConvert=Intl.NumberFormat('en-IN').format(RupeePrice)
+
 
     const style = {
         boxShadow: 'rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset', borderRadius: '10px',
@@ -23,10 +27,18 @@ function GridView(props) {
         borderRadius: '6px',
 
     }
+    const Title = {
+        // border: '2px solid black',
+        marginTop: '15px'
+    }
+    const Pricestyle = {
+        // border: '2px solid red',
+        margin: '13px'
+    }
     return (
         <>
             <Grid item lg={3} xs={12} md={4} sm={6}>
-                <Tooltip arrow  title={title}>
+                <Tooltip arrow title={title}>
 
                     <Box sx={style}  >
 
@@ -37,7 +49,8 @@ function GridView(props) {
                             <img style={imagestyle} onClick={() => {
                                 navigate(`${id}`,)
                             }} src={thumbnail} alt={title} />
-                            <p>{title}</p>
+                            <p style={Title}>{title}</p>
+                            <p >{`${currencyConvert} ₹`}</p>
 
 
                         </div>

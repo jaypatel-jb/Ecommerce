@@ -3,6 +3,7 @@ import { context } from 'D:/Bigproject/Ecommerce/src/App';
 import { fatchSpecificproduct } from '../Redux/Specificproductslice'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router';
+import { CircularProgress } from '@mui/material';
 function SpecificProduct() {
   let { id } = useContext(context)
   const { name } = useParams()
@@ -11,6 +12,17 @@ function SpecificProduct() {
   useEffect(() => {
     dispatch(fatchSpecificproduct(name))
   }, [name])
+
+  if (Specificproduct.status === 'LODING') {
+    return (
+      <div className='Loder'>
+
+        <CircularProgress />
+       
+      </div>
+    )
+  }
+
   return (
     <>
  

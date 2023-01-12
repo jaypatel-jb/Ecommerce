@@ -14,6 +14,7 @@ export const Filterbox = {
     height: '100vh'
 }
 export const User_Action = {
+    // border:'2px solid black',
     boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px',
     boxSizing: 'border-box',
     borderRadius: '10px',
@@ -21,7 +22,7 @@ export const User_Action = {
     display: 'flex',
     flexDirection: 'row',
     width: "99%",
-    height: '5%',
+    height: '60px',
     bgcolor: 'white'
 }
 export const Style = {
