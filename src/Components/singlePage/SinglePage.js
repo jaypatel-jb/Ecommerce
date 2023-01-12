@@ -1,33 +1,69 @@
 import React, { useContext, useEffect } from 'react'
 import { context } from 'D:/Bigproject/Ecommerce/src/App';
 import { useNavigate, useParams } from 'react-router-dom';
+import { fatchproductlist } from '../../Redux/SpecificProductList'
 import { useState } from 'react';
-import axios from 'axios';
+import { SelectAll, Selectlow, selectHigh } from '../../Redux/PriceFilterSlice'
 import GridViewRoundedIcon from '@mui/icons-material/GridViewRounded';
 import ReorderRoundedIcon from '@mui/icons-material/ReorderRounded';
-import { CircularProgress, Grid, IconButton, Tooltip, Typography } from '@mui/material';
+import { CircularProgress, FormControl, Grid, IconButton, InputLabel, MenuItem, Select, Tooltip, Typography } from '@mui/material';
 import './singlePage.css'
 import { Box, Stack } from '@mui/system';
 import GridView from './GridView';
 import { Product_view, Filterbox, User_Action, Style, Grid_Style } from './SinglePageStyle'
 import ListView from './ListView';
+import { useDispatch, useSelector } from 'react-redux';
+
+
 function SinglePage() {
-  const [{ products }, setproductdata] = useState([])
-  let { } = useContext(context)
+
+  //  ..................................................................Redux data...........................................................//
+
+  const ProductsList = useSelector((state) => state.SpecificProductList)
+  const { Producfilterlist } = useSelector((state) => state.PriceFilter)
+  const dispatch = useDispatch()
+  const { products } = ProductsList.data
+  // *...................................................................Navigate.............................................................//
   let navigate = useNavigate()
   const { ID } = useParams()
 
+  // *...................................................................STATE................................................................//
   const [Grid_List, setGrid_List] = useState(true)
-  useEffect(() => {
-    const fetchData = async () => {
-      let link = `https://dummyjson.com/products/category/${ID}`;
-      const res = await axios.get(link);
-      const pdata = await res.data;
-      setproductdata(pdata);
-    };
-    fetchData();
-  }, [ID]);
+  const [select_Menu, setselect_Menu] = useState('All')
 
+  function handleMenu(e) {
+    setselect_Menu(e.target.value)
+  }
+
+
+
+  useEffect(() => {
+    if (products) {
+      if (select_Menu === 'All') {
+        dispatch(SelectAll(products))
+      } if (select_Menu === "Low") {
+        dispatch(Selectlow(products))
+      }
+      if (select_Menu === "High") {
+        dispatch(selectHigh(products))
+      }
+    }
+  }, [select_Menu, products])
+
+  useEffect(() => {
+
+    dispatch(fatchproductlist(ID))
+  }, [ID,]);
+
+
+  if (ProductsList.status === 'LODING') {
+    return (
+      <div className='Loder'>
+
+        <CircularProgress />
+      </div>
+    )
+  }
   return (
 
     <>
@@ -44,28 +80,38 @@ function SinglePage() {
 
             <Box sx={Style} >
               <Tooltip title='Grid view'>
-                <IconButton className='GridViewRoundedIcon' onClick={()=>setGrid_List(true)}>
+                <IconButton className='GridViewRoundedIcon' onClick={() => setGrid_List(true)}>
 
                   <GridViewRoundedIcon />
                 </IconButton>
               </Tooltip>
               <Tooltip title='List view'>
-                <IconButton className='ReorderRoundedIcon' onClick={()=>setGrid_List(false)}>
+                <IconButton className='ReorderRoundedIcon' onClick={() => setGrid_List(false)}>
 
                   <ReorderRoundedIcon />
                 </IconButton>
               </Tooltip>
             </Box>
-            <Box sx={Style}>
-              <Typography variant='body2' component='span'>{`no of products ${products ? products.length : 0}`}</Typography>
+            <Box color='GrayText' sx={Style}>
+              <Typography variant='body1' component='span'>{`No of products ${products ? products.length : 0}`}</Typography>
             </Box>
-            <Box sx={Style}>3</Box>
+            <Box sx={Style}>
+              <FormControl sx={{ minWidth: 95, }} size="small">
+                <InputLabel id='select'>Sort by</InputLabel>
+                <Select onChange={handleMenu} value={select_Menu} fullWidth labelId='select' label="Sort by" id='select-lable'>
+                  <MenuItem value='All' >All</MenuItem>
+                  <MenuItem value='Low' >Low-High</MenuItem>
+                  <MenuItem value='High'>High-Low</MenuItem>
+
+                </Select>
+              </FormControl>
+            </Box>
           </Box>
           <Grid sx={Grid_Style} container spacing={2}  >
 
             {
-              products ? (
-                products.map((product) => {
+              Producfilterlist ? (
+                Producfilterlist.map((product) => {
 
 
                   return (
@@ -75,12 +121,7 @@ function SinglePage() {
 
                   )
                 })
-              ) : (
-                <div className='Loder'>
-
-                  <CircularProgress />
-                </div>
-              )}
+              ) : null}
 
 
           </Grid>
