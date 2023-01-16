@@ -1,12 +1,10 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Producttitle from '../Globalcomponnts/Producttitle'
-import { useContext } from 'react';
-import { context } from 'D:/Bigproject/Ecommerce/src/App';
 import './home.css'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import { fatchProductcategories } from 'D:/Bigproject/Ecommerce/src/Redux/Productcategories';
 import { useDispatch, useSelector } from 'react-redux';
+
 
 const responsive = {
     desktop: {
@@ -26,16 +24,11 @@ const responsive = {
     }
 };
 function Home() {
-    // const dispatch = useDispatch()
-    // useEffect(() => {
-    //     dispatch(fatchProductcategories())
-    // }, [])
-    // let Productcategories = useSelector((state) => state.Productcategories)
 
-    
-    // let Filtercategories = Productcategories.data.slice(0, 10)
-    
-    let { ProductCategory } = useContext(context)
+    let Productcategories = useSelector((state) => state.Productcategories)
+
+
+
 
     return (
         <>
@@ -54,19 +47,20 @@ function Home() {
 
             </Carousel>
             {
-                ProductCategory.map((elm, index) => {
+                Productcategories ? Productcategories.data
+                    .map((elm, index) => {
 
-                    return (
+                        return (
 
-                        <div key={elm.id}>
+                            <div key={elm.id}>
 
-                            <Producttitle alldata={elm} products={elm.Name} />
-                        </div>
-                    )
-                })
+                                <Producttitle alldata={elm} products={elm.Name} />
+                            </div>
+                        )
+                    }) : ''
             }
 
-            
+
 
         </>
     )

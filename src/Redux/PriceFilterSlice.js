@@ -16,7 +16,11 @@ const PriceFilter = createSlice({
     initialState,
     reducers: {
         SelectAll: (state, action) => {
-            state.Producfilterlist = [...action.payload]
+            const Reset = (a, b) => {
+                return a.id - b.id
+
+            }
+            state.Producfilterlist = [...action.payload].sort(Reset)
             state.status='IDEL'
         },
         Selectlow: (state, action) => {

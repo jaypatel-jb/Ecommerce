@@ -9,16 +9,16 @@ import ReorderRoundedIcon from '@mui/icons-material/ReorderRounded';
 import { CircularProgress, FormControl, Grid, IconButton, InputLabel, MenuItem, Select, Tooltip, Typography } from '@mui/material';
 import './singlePage.css'
 import { Box, Stack } from '@mui/system';
-import GridView from './GridView';
+import GridView from './GridandListview/GridView';
 import { Product_view, Filterbox, User_Action, Style, Grid_Style } from './SinglePageStyle'
-import ListView from './ListView';
+import ListView from './GridandListview/ListView';
 import { useDispatch, useSelector } from 'react-redux';
+import FilterSection from './FilterSection/FilterSection';
 
 
 function SinglePage() {
 
-  //  ..................................................................Redux data...........................................................//
-
+  // * ..................................................................Redux data...........................................................//
   const ProductsList = useSelector((state) => state.SpecificProductList)
   const { Producfilterlist } = useSelector((state) => state.PriceFilter)
   const dispatch = useDispatch()
@@ -64,6 +64,7 @@ function SinglePage() {
       </div>
     )
   }
+
   return (
 
     <>
@@ -72,8 +73,8 @@ function SinglePage() {
 
       <Stack direction='row' sx={Product_view} >
 
-        <Box sx={Filterbox} >
-          ok
+        <Box sx={Filterbox}  >
+          <FilterSection />
         </Box>
         <Box width="80%" height='100%' >
           <Box sx={User_Action} >
@@ -97,9 +98,9 @@ function SinglePage() {
             </Box>
             <Box sx={Style}>
               <FormControl sx={{ minWidth: 95, }} size="small">
-                <InputLabel id='select'>Sort by</InputLabel>
-                <Select onChange={handleMenu} value={select_Menu} fullWidth labelId='select' label="Sort by" id='select-lable'>
-                  <MenuItem value='All' >All</MenuItem>
+                <InputLabel id='select'>Price</InputLabel>
+                <Select onChange={handleMenu} value={select_Menu} fullWidth labelId='select' label="Price" id='select-lable'>
+                  <MenuItem value='All' >Reset</MenuItem>
                   <MenuItem value='Low' >Low-High</MenuItem>
                   <MenuItem value='High'>High-Low</MenuItem>
 
@@ -121,7 +122,7 @@ function SinglePage() {
 
                   )
                 })
-              ) : null}
+              ) :null}
 
 
           </Grid>
@@ -144,31 +145,3 @@ function SinglePage() {
 }
 
 export default SinglePage
-
-
-{/* <div className='Product_view'>
-
-</div>
-<div className="Filter">
-  <div className='Sort_View_filter'>
-    <div className='Icon_filter'>
-
-      <GridViewRoundedIcon className='GridViewRoundedIcon' />
-      <ReorderRoundedIcon className='ReorderRoundedIcon' />
-
-    </div>
-    <div className="No_of_Products">
-      <p>
-        No of Products
-      </p>
-    </div>
-    <div className="Sort_Filter">
-   
-     <select >
-      <option value="1">all</option>
-      <option value="2">Letest</option>
-      <option value="3">new</option>
-     </select>
-    </div>
-  </div>
-</div> */}

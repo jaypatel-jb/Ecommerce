@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { CircularProgress, Grid, LinearProgress, Tooltip } from '@mui/material';
 import { Box } from '@mui/system';
 function GridView(props) {
-
+let {ID}= useParams()
     let { brand, id, thumbnail, title, description, price, discountPercentage, rating } = props.products
 
     let navigate = useNavigate()
@@ -47,7 +47,7 @@ function GridView(props) {
                         <div key={id} >
 
                             <img style={imagestyle} onClick={() => {
-                                navigate(`${id}`,)
+                                navigate(`${ID}/${id}`,)
                             }} src={thumbnail} alt={title} />
                             <p style={Title}>{title}</p>
                             <p >{`${currencyConvert} ₹`}</p>

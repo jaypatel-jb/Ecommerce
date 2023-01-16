@@ -31,16 +31,15 @@ function Navbar1() {
                 <Route path='/Contact' element={<Contact />} />
                 <Route path='/Cart' element={<Cart />} />
                 <Route path='*' element={<Error />} />
-                <Route path='singlepage/:ID' element={<SinglePage />} />
-                <Route  path='singlepage/:ID/:name' element={<SpecificProduct />} />
-
-
-
+                <Route path='singlepage' element={<SinglePage />} >
+                    <Route path=':ID' element=''/>
+                </Route>
+                <Route path='singlepage/:ID/:name' element={<SpecificProduct />} />
 
 
             </Routes>
 
-        {/* <Footer/> */}
+            {/* <Footer/> */}
         </BrowserRouter>
 
     )

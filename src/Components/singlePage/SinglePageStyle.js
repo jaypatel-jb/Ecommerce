@@ -6,11 +6,12 @@ export const Product_view = {
     bgcolor: '#ebebeb'
 }
 export const Filterbox = {
+    // border:'2px solid black',
     boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px',
     borderRadius: '10px', boxSizing: 'border-box',
     margin: '8px',
     bgcolor: 'white',
-    width: "20%",
+    width: "25vw",
     height: '100vh'
 }
 export const User_Action = {

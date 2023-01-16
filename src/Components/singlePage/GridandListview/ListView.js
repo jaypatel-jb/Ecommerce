@@ -1,8 +1,10 @@
 import { Button, Grid, Rating, TextField, Tooltip, Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import React from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 function ListView(props) {
+    let { ID } = useParams()
+
     let navigate = useNavigate()
     let { brand, id, thumbnail, title, description, price, discountPercentage, rating } = props.products
     const RupeePrice = Math.floor(price * 81.665)
@@ -53,12 +55,12 @@ function ListView(props) {
                         <Box paddingTop='25px' sx={Product_Detailed}>
 
                             <Typography variant='h5' marginTop='8px' >{brand}</Typography>
-                            <Rating readOnly precision={0.5} value={rating}/>
+                            <Rating readOnly precision={0.5} value={rating} />
                             <Typography variant='body1'>{title}</Typography>
                             <Typography marginTop='8px' variant='body1'>{description}</Typography>
-                            <Typography sx={{color:'green'}} marginTop='8px' variant='h5'>{`${currencyConvert} ₹`}</Typography>
+                            <Typography sx={{ color: 'green' }} marginTop='8px' variant='h5'>{`${currencyConvert} ₹`}</Typography>
                             <Button onClick={() => {
-                                navigate(`${id}`,)
+                                navigate(`${ID}/${id}`,)
                             }} sx={{ marginTop: '30px' }} variant='outlined'>Read More</Button>
                         </Box>
 

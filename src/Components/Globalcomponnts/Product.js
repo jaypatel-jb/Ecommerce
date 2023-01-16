@@ -1,14 +1,13 @@
 import React from 'react'
 import './Product.css'
-import { context } from 'D:/Bigproject/Ecommerce/src/App';
-import { useContext } from 'react';
+
 import { useNavigate } from 'react-router-dom';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
 function Product(props) {
 
-    let { } = useContext(context)
+   
     let pdata = props.data.data
     let navigate = useNavigate()
     function btnclick(ele, id) {
