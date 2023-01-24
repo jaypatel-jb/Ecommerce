@@ -2,14 +2,13 @@ import { Button, Grid, Rating, TextField, Tooltip, Typography } from '@mui/mater
 import { Box } from '@mui/system'
 import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
+import {Priceconverter} from '../../Utils/PriceConverter'
 function ListView(props) {
     let { ID } = useParams()
 
     let navigate = useNavigate()
     let { brand, id, thumbnail, title, description, price, discountPercentage, rating } = props.products
-    const RupeePrice = Math.floor(price * 81.665)
-
-    let currencyConvert = Intl.NumberFormat('en-IN').format(RupeePrice)
+    let currencyConvert=Priceconverter(price)
     const style = {
         boxShadow: 'rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset', borderRadius: '10px',
         height: '300px',
@@ -59,9 +58,9 @@ function ListView(props) {
                             <Typography variant='body1'>{title}</Typography>
                             <Typography marginTop='8px' variant='body1'>{description}</Typography>
                             <Typography sx={{ color: 'green' }} marginTop='8px' variant='h5'>{`${currencyConvert} ₹`}</Typography>
-                            <Button onClick={() => {
+                            <Button variant='contained' onClick={() => {
                                 navigate(`${ID}/${id}`,)
-                            }} sx={{ marginTop: '30px' }} variant='outlined'>Read More</Button>
+                            }} sx={{ marginTop: '30px' }} >Read More</Button>
                         </Box>
 
                     </Box>

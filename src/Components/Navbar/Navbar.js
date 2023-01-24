@@ -7,7 +7,8 @@ import { AiOutlineMenu } from 'react-icons/ai'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { BiSearchAlt } from 'react-icons/bi'
 import { useState } from 'react';
-import { Badge } from '@mui/material';
+import { Badge, Button } from '@mui/material';
+import { IoLogoSlack } from 'react-icons/io';
 function Navbar() {
     let [menubtn, setmenubtn] = useState(false)
     let [Searchbtn, setSearchbtn] = useState(false)
@@ -21,13 +22,14 @@ function Navbar() {
     function searchbtn() {
         Searchbtn ? setSearchbtn(false) : setSearchbtn(true)
     }
-
+    // RxStitchesLogo
     return (
         <>
             <header>
                 <nav className='navbar'>
                     <div className="logo">
-                        <Mainlogo />
+                        <IoLogoSlack />
+                        
                     </div>
                     <div className='searchbox'>
                         {Searchbtn ? <input type="search" id="search" /> : null}
@@ -42,10 +44,10 @@ function Navbar() {
                             <li ><NavLink className='listli' to={'/Pages'}>PAGES</NavLink></li>
                             <li  ><NavLink className='listli' to={'/Contact'}>CONTACT</NavLink></li>
 
-                            <button id='Login_btn'>Login</button>
+                            <Button variant='contained' id='Login_btn'>Login</Button>
                             <NavLink to={'/Cart'}>
                                 <Badge badgeContent={100} color="primary">
-                                    <ShoppingCartIcon color="action" />
+                                    <ShoppingCartIcon  color="action" />
                                 </Badge>
                             </NavLink>
 

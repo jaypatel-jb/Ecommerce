@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react'
 import Producttitle from '../Globalcomponnts/Producttitle'
 import './home.css'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 
 const responsive = {

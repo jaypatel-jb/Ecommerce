@@ -1,5 +1,25 @@
-.FilterSection_Link{
-    border: 2px solid black;
+.FilterSection {
+
     display: flex;
     flex-direction: column;
+}
+
+.FilterSection_Link {
+    margin-top: 6px;
+    margin-left: 8px;
+
+    font-size: larger;
+}
+
+.FilterSection_Link .active {
+    color: #0089ff;
+}
+.FilterSection_Link:hover{
+    color: rgb(0, 217, 255);
+    
+    
+}
+hr{
+    margin-top: 10px;
+    
 }

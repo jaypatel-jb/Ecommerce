@@ -14,7 +14,7 @@ import { Product_view, Filterbox, User_Action, Style, Grid_Style } from './Singl
 import ListView from './GridandListview/ListView';
 import { useDispatch, useSelector } from 'react-redux';
 import FilterSection from './FilterSection/FilterSection';
-
+import CategoryIcon from '@mui/icons-material/Category';
 
 function SinglePage() {
 
@@ -30,25 +30,26 @@ function SinglePage() {
   // *...................................................................STATE................................................................//
   const [Grid_List, setGrid_List] = useState(true)
   const [select_Menu, setselect_Menu] = useState('All')
+  const [Branddata, setbranddata] = useState([])
 
   function handleMenu(e) {
     setselect_Menu(e.target.value)
   }
-
+  // console.log(Producfilterlist);
 
 
   useEffect(() => {
-    if (products) {
+    if (Branddata) {
       if (select_Menu === 'All') {
-        dispatch(SelectAll(products))
+        dispatch(SelectAll(Branddata))
       } if (select_Menu === "Low") {
-        dispatch(Selectlow(products))
+        dispatch(Selectlow(Branddata))
       }
       if (select_Menu === "High") {
-        dispatch(selectHigh(products))
+        dispatch(selectHigh(Branddata))
       }
     }
-  }, [select_Menu, products])
+  }, [select_Menu, Branddata])
 
   useEffect(() => {
 
@@ -64,7 +65,14 @@ function SinglePage() {
       </div>
     )
   }
+  function branddata(data) {
+    setbranddata(data)
+  }
+  // function sliderdataArray(data) {
+   
+  // }
 
+// console.log(Branddata);
   return (
 
     <>
@@ -74,7 +82,8 @@ function SinglePage() {
       <Stack direction='row' sx={Product_view} >
 
         <Box sx={Filterbox}  >
-          <FilterSection />
+          <FilterSection branddata2={branddata}  />
+
         </Box>
         <Box width="80%" height='100%' >
           <Box sx={User_Action} >
@@ -94,7 +103,7 @@ function SinglePage() {
               </Tooltip>
             </Box>
             <Box color='GrayText' sx={Style}>
-              <Typography variant='body1' component='span'>{`No of products ${products ? products.length : 0}`}</Typography>
+              <Typography variant='body1' component='span'>{`No of products ${Branddata ? Branddata.length : 0}`}</Typography>
             </Box>
             <Box sx={Style}>
               <FormControl sx={{ minWidth: 95, }} size="small">
@@ -122,7 +131,7 @@ function SinglePage() {
 
                   )
                 })
-              ) :null}
+              ) : null}
 
 
           </Grid>

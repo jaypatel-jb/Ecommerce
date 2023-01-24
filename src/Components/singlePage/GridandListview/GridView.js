@@ -2,14 +2,14 @@ import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import { CircularProgress, Grid, LinearProgress, Tooltip } from '@mui/material';
 import { Box } from '@mui/system';
+import {Priceconverter} from '../../Utils/PriceConverter'
 function GridView(props) {
 let {ID}= useParams()
     let { brand, id, thumbnail, title, description, price, discountPercentage, rating } = props.products
 
     let navigate = useNavigate()
-    const RupeePrice = Math.floor(price * 81.665)
     
-    let currencyConvert=Intl.NumberFormat('en-IN').format(RupeePrice)
+    let currencyConvert=Priceconverter(price)
 
 
     const style = {

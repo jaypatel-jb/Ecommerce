@@ -7,6 +7,9 @@ export const Product_view = {
 }
 export const Filterbox = {
     // border:'2px solid black',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
     boxShadow: 'rgba(0, 0, 0, 0.35) 0px 5px 15px',
     borderRadius: '10px', boxSizing: 'border-box',
     margin: '8px',

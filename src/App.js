@@ -15,7 +15,7 @@ function App() {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getproductcategories(ProductCategory))
-  }, [ProductCategory])
+  }, [dispatch])
   const [ShowandHide, setShowandHide] = useState(true)
 
 
@@ -26,7 +26,7 @@ function App() {
 
 
 
-
+console.log('ye');
   return (
     <>
           {ShowandHide ? <NavbarLinks /> :
