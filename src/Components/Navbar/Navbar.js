@@ -9,9 +9,12 @@ import { BiSearchAlt } from 'react-icons/bi'
 import { useState } from 'react';
 import { Badge, Button } from '@mui/material';
 import { IoLogoSlack } from 'react-icons/io';
+import { useSelector } from 'react-redux';
 function Navbar() {
     let [menubtn, setmenubtn] = useState(false)
     let [Searchbtn, setSearchbtn] = useState(false)
+    const CartProductlist = useSelector(state => state.CartProductlist)
+    
     window.addEventListener('scroll', onscroll)
     function onscroll() {
         document.querySelector('.navbar').classList.toggle('toggle', window.scrollY > 0)
@@ -22,6 +25,7 @@ function Navbar() {
     function searchbtn() {
         Searchbtn ? setSearchbtn(false) : setSearchbtn(true)
     }
+    
     // RxStitchesLogo
     return (
         <>
@@ -46,7 +50,7 @@ function Navbar() {
 
                             <Button variant='contained' id='Login_btn'>Login</Button>
                             <NavLink to={'/Cart'}>
-                                <Badge badgeContent={100} color="primary">
+                                <Badge badgeContent={CartProductlist.CartProduc.length} color="primary">
                                     <ShoppingCartIcon  color="action" />
                                 </Badge>
                             </NavLink>

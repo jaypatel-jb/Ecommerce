@@ -72,7 +72,7 @@ function SinglePage() {
    
   // }
 
-// console.log(Branddata);
+
   return (
 
     <>
@@ -126,7 +126,7 @@ function SinglePage() {
 
                   return (
                     Grid_List ?
-                      <GridView key={product.id} products={product} /> : <ListView key={product.id} products={product} />
+                      <GridView  key={product.id} products={product} /> : <ListView  key={product.id} products={product} />
 
 
                   )

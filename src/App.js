@@ -26,7 +26,7 @@ function App() {
 
 
 
-console.log('ye');
+// console.log('ye');
   return (
     <>
           {ShowandHide ? <NavbarLinks /> :

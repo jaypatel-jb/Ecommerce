@@ -11,9 +11,9 @@
     font-size: larger;
 }
 
-.FilterSection_Link .active {
+/* .FilterSection_Link .active {
     color: #0089ff;
-}
+} */
 .FilterSection_Link:hover{
     color: rgb(0, 217, 255);
     

@@ -29,7 +29,7 @@ function FilterSection({ branddata2, sliderdataArray }) {
     }
     let RemoveDubble = new Set(Brandarry)
     let brand = [...RemoveDubble]
-    const [state, setstate] = useState([])
+    const [state, setstate] = useState(brand)
     const [checkAll, setcheckAll] = useState(true)
 
 
@@ -160,7 +160,7 @@ function FilterSection({ branddata2, sliderdataArray }) {
 
             >
 
-                <Alert variant='filled' severity="warning">please select at least one checkbox</Alert>
+                <Alert variant='filled' severity="warning">please select at least one Brand</Alert>
 
             </Snackbar>
 

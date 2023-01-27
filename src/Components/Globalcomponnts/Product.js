@@ -4,15 +4,18 @@ import './Product.css'
 import { useNavigate } from 'react-router-dom';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import { useDispatch } from 'react-redux';
 
 function Product(props) {
+    const dispatch = useDispatch()
 
-   
+
     let pdata = props.data.data
     let navigate = useNavigate()
     function btnclick(ele, id) {
+        
         navigate(`singlepage/${props.forclick}/${ele.id}`)
-
+        
     }
     const responsive = {
         desktop: {
