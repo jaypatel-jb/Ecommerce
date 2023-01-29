@@ -94,12 +94,14 @@ function SpecificProduct() {
   const CartProductlist = useSelector(state => state.CartProductlist)
   let RemoveDuplicatcart = CartProductlist.CartProduc.map(elm => JSON.stringify(elm));
   let RemoveDuplicatcart1 = JSON.stringify(Specificproduct.data)
-  // let RemoveDuplicatcartarray = [...new Set(RemoveDuplicatcart)]
 
-  // console.log(RemoveDuplicatcartarray.map(elm => JSON.parse(elm)))
   function handleinterastedProducts(id) {
     navigate(`${id}`)
   }
+
+  let cartQuntity = Object.assign({}, Specificproduct.data, { Quntity: 1 })
+
+  // console.log(cartQuntity);
   function handleAddtocart() {
     if (RemoveDuplicatcart.includes(RemoveDuplicatcart1)) {
       setTimeout(() => {
@@ -109,12 +111,12 @@ function SpecificProduct() {
       setCartItemalradyloder(true)
     } else {
 
-       setTimeout(() => {
+      setTimeout(() => {
         setCartloder(false)
 
       }, 2500)
 
-      dispatch(CartProductlists(Specificproduct.data))
+      dispatch(CartProductlists(cartQuntity))
       setCartloder(true)
     }
   }
