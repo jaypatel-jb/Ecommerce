@@ -13,11 +13,12 @@ import Home from '../Home/Home';
 import SinglePage from '../singlePage/SinglePage';
 import SpecificProduct from '../../SpecificProducts/SpecificProduct';
 import Footer from '../Footer/Footer';
+import { useSelector } from 'react-redux';
 
 
 
 function Navbar1() {
-
+    let { data } = useSelector((state) => state.Productcategories)
 
     return (
         <BrowserRouter>
@@ -32,6 +33,7 @@ function Navbar1() {
                 <Route path='/Cart' element={<Cart />} />
                 <Route path='*' element={<Error />} />
                 <Route path='singlepage' element={<SinglePage />} >
+
                     <Route path=':ID' element='' />
                 </Route>
                 {/* <Route path='singlepage/:ID/:name' element={<SpecificProduct />} >

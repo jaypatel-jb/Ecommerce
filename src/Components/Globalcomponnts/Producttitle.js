@@ -2,9 +2,10 @@ import React from 'react'
 import './Producttitle.css'
 import { useNavigate } from 'react-router-dom'
 import Product from './Product';
+import { Typography } from '@mui/material';
 function Producttitle(props) {
 
-    
+
 
 
     let navigate = useNavigate()
@@ -18,15 +19,14 @@ function Producttitle(props) {
 
     }
 
-    
+
     return (
         <>
             <div className={`main ${props.classname}`} >
 
                 <div className="Ptitle">
-
-                    <h1>{props.products}</h1>
-                    <img src={props.products.image} alt="error" />
+                    <Typography variant='h5' >{props.products}</Typography>
+                    {/* <img src={props.products.image} alt="error" /> */}
                     <button onClick={btnclick}> view All</button>
 
                 </div>

@@ -1,9 +1,10 @@
 
 
 export const Product_view = {
-    height: 'fit-content',
+    // height: 'fit-content',
     width: '99vw',
-    bgcolor: '#ebebeb'
+    bgcolor: '#ebebeb',
+    // border:'2px solid green'
 }
 export const Filterbox = {
     // border:'2px solid black',
@@ -42,5 +43,5 @@ export const Grid_Style = {
     margin: '0',
     pading: '0',
     width: '98%',
-    height: '95%'
+    height: '100%'
 }

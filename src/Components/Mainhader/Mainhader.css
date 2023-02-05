@@ -3,7 +3,7 @@
     padding: 0%;
     box-sizing: border-box;
     text-decoration: none;
-   
+
 }
 
 header {
@@ -13,7 +13,7 @@ header {
     /* width: 100vw; */
     display: flex;
     justify-content: center;
-   
+
 
 }
 
@@ -37,17 +37,11 @@ header {
     display: flex;
 }
 
-.ShoppingBasket {
-    color: rgb(0, 217, 255);
-    cursor: pointer;
-    margin-left: 5px;
-    margin-right: 10px;
 
-}
 
 .navbar {
     display: flex;
-    border: 1px solid rgba(255, 255, 255, 0);
+    /* border: 1px solid rgba(255, 255, 255, 0); */
     background-color: rgb(255, 255, 255);
     justify-content: space-between;
     align-items: center;
@@ -110,7 +104,8 @@ header {
 
 #menu {
 
-    color: rgb(0, 0, 0);
+    /* color: rgb(0, 0, 0); */
+    /* color: rgb(0, 0, 0); */
     cursor: pointer;
     display: none;
     margin-right: 10px;
@@ -119,8 +114,9 @@ header {
 #closeIcon {
     display: none;
 }
-#Login_btn{
-    
+
+#Login_btn {
+
     border: 1px solid rgba(6, 136, 243, 0.823);
     border-radius: 5px;
     padding: 3px;
@@ -146,7 +142,7 @@ header {
 
 
     .navlinks {
-       display: none;
+        display: none;
         position: absolute;
         justify-content: center;
         top: 0%;
@@ -156,22 +152,22 @@ header {
         border: 2px solid black;
         z-index: 1;
         background-color: aliceblue;
-        
+
     }
 
     .closebtn {
-      
-      display: block;
+
+        display: block;
         position: absolute;
         justify-content: center;
         top: 0%;
         left: 0%;
         width: 100vw;
         height: 100vh;
-        border: 2px solid black;
-        z-index: 1;
+        /* border: 2px solid black; */
+        z-index: 10000000;
         background-color: aliceblue;
-        
+
     }
 
 
@@ -200,29 +196,36 @@ header {
     #closeIcon {
         display: inline-block;
         position: relative;
-        top: -14rem;
+        top: -17rem;
         right: -28vw;
         font-size: 2rem;
     }
-    #Login_btn{
+
+    #Login_btn {
         padding: 6px;
         height: 30%;
         width: 40%;
     }
+
     .toggle {
 
         width: 98vw;
         /* height: 100vh; */
-        position:unset;
+        position: unset;
         top: 0%;
         left: 0%;
-    
-    
+
+
     }
-    .ShoppingBasket{
-        display: block;
-        margin: auto;
+
+    .ShoppingBasket {
+
+        /* margin-top: 30px; */
+    }
+
+    #cartLogowithBadge {
         margin-top: 30px;
+        
     }
 
 }

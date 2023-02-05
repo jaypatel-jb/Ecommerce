@@ -37,9 +37,10 @@ function Product(props) {
     return (
         <div className={`mainbox`} >
             <Carousel responsive={responsive}
-                swipeable={false}
+                swipeable={true}
                 draggable={false}
                 infinite={false}
+                removeArrowOnDeviceType={["tablet", "mobile"]}
                 dotListClass="custom-dot-list-style"
                 itemClass="carousel-item-padding-40-px"
                 containerClass="carousel-container">

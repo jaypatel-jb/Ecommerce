@@ -27,10 +27,15 @@ function SinglePage() {
   let navigate = useNavigate()
   const { ID } = useParams()
 
-  // *...................................................................STATE................................................................//
+  // *...................................................................<STATE & VER>................................................................//
   const [Grid_List, setGrid_List] = useState(true)
   const [select_Menu, setselect_Menu] = useState('All')
   const [Branddata, setbranddata] = useState([])
+
+  let innerHeight = window.innerHeight
+  let innerWidth = window.innerWidth
+  console.log(innerWidth);
+  // *...................................................................<LOGIC>................................................................//
 
   function handleMenu(e) {
     setselect_Menu(e.target.value)
@@ -69,7 +74,7 @@ function SinglePage() {
     setbranddata(data)
   }
   // function sliderdataArray(data) {
-   
+
   // }
 
 
@@ -79,13 +84,13 @@ function SinglePage() {
 
 
 
-      <Stack direction='row' sx={Product_view} >
+      <Grid container justifyContent='space-around' display='flex' sx={Product_view} >
 
-        <Box sx={Filterbox}  >
-          <FilterSection branddata2={branddata}  />
+        <Grid item sx={Filterbox} lg={3} xs={12} md={3} sm={12} >
+          <FilterSection branddata2={branddata} />
 
-        </Box>
-        <Box width="80%" height='100%' >
+        </Grid>
+        <Grid item  lg={8} md={8}>
           <Box sx={User_Action} >
 
             <Box sx={Style} >
@@ -95,12 +100,15 @@ function SinglePage() {
                   <GridViewRoundedIcon />
                 </IconButton>
               </Tooltip>
-              <Tooltip title='List view'>
-                <IconButton className='ReorderRoundedIcon' onClick={() => setGrid_List(false)}>
+              {
+                innerWidth <=902 ?null:
+                <Tooltip title='List view'>
+                  <IconButton className='ReorderRoundedIcon' onClick={() => setGrid_List(false)}>
 
-                  <ReorderRoundedIcon />
-                </IconButton>
-              </Tooltip>
+                    <ReorderRoundedIcon />
+                  </IconButton>
+                </Tooltip>
+              }
             </Box>
             <Box color='GrayText' sx={Style}>
               <Typography variant='body1' component='span'>{`No of products ${Branddata ? Branddata.length : 0}`}</Typography>
@@ -117,7 +125,7 @@ function SinglePage() {
               </FormControl>
             </Box>
           </Box>
-          <Grid sx={Grid_Style} container spacing={2}  >
+          <Grid sx={Grid_Style} container spacing={2} width='100%' height='50%' border='2px solid black' >
 
             {
               Producfilterlist ? (
@@ -126,7 +134,7 @@ function SinglePage() {
 
                   return (
                     Grid_List ?
-                      <GridView  key={product.id} products={product} /> : <ListView  key={product.id} products={product} />
+                      <GridView key={product.id} products={product} /> :  <ListView key={product.id} products={product} />
 
 
                   )
@@ -138,9 +146,9 @@ function SinglePage() {
 
 
 
-        </Box>
+        </Grid>
 
-      </Stack>
+      </Grid>
 
 
 

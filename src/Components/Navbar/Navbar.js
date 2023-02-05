@@ -14,7 +14,7 @@ function Navbar() {
     let [menubtn, setmenubtn] = useState(false)
     let [Searchbtn, setSearchbtn] = useState(false)
     const CartProductlist = useSelector(state => state.CartProductlist)
-    
+
     window.addEventListener('scroll', onscroll)
     function onscroll() {
         document.querySelector('.navbar').classList.toggle('toggle', window.scrollY > 0)
@@ -25,7 +25,7 @@ function Navbar() {
     function searchbtn() {
         Searchbtn ? setSearchbtn(false) : setSearchbtn(true)
     }
-    
+
     // RxStitchesLogo
     return (
         <>
@@ -33,7 +33,7 @@ function Navbar() {
                 <nav className='navbar'>
                     <div className="logo">
                         <IoLogoSlack />
-                        
+
                     </div>
                     <div className='searchbox'>
                         {Searchbtn ? <input type="search" id="search" /> : null}
@@ -48,12 +48,18 @@ function Navbar() {
                             <li ><NavLink className='listli' to={'/Pages'}>PAGES</NavLink></li>
                             <li  ><NavLink className='listli' to={'/Contact'}>CONTACT</NavLink></li>
 
-                            <Button variant='contained' id='Login_btn'>Login</Button>
-                            <NavLink to={'/Cart'}>
-                                <Badge badgeContent={CartProductlist.CartProduc.length} color="primary">
-                                    <ShoppingCartIcon  color="action" />
-                                </Badge>
-                            </NavLink>
+                            <li>
+                                <Button variant='contained' id='Login_btn'>Login</Button>
+
+                            </li>
+                            <li id='cartLogowithBadge'>
+
+                                <NavLink to={'/Cart'}>
+                                    <Badge badgeContent={CartProductlist.CartProduc.length} color="primary">
+                                        <ShoppingCartIcon className='ShoppingBasket' color="action" />
+                                    </Badge>
+                                </NavLink>
+                            </li>
 
                         </ul>
                         <GrClose id='closeIcon' onClick={btnclick} />

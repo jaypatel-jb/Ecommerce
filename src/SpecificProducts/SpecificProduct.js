@@ -2,7 +2,7 @@ import React, { useCallback, useContext, useEffect, useState } from 'react'
 import { fatchSpecificproduct } from '../Redux/Specificproductslice'
 import { useDispatch, useSelector } from 'react-redux'
 import { InterestedProducList } from '../Redux/InterestedProducslice';
-import { CartProductlists } from '../Redux/CartSlice'
+import { CartProductlists, CartLength } from '../Redux/CartSlice'
 import { useNavigate, useParams } from 'react-router';
 import { Alert, Button, CircularProgress, Grid, LinearProgress, Rating, Typography } from '@mui/material';
 import { Box } from '@mui/system';
@@ -35,6 +35,8 @@ function SpecificProduct() {
   let convertJasonString = interestedproduct.InterestedProduclist.map(elm => JSON.stringify(elm))
   let RemoveDuplicatobj = new Set(convertJasonString)
   let interastedProduct = [...RemoveDuplicatobj].map(elm => JSON.parse(elm))
+  let cartQuntity = Object.assign({}, Specificproduct.data, { Quntity: 1 })
+  const CartProductlist = useSelector(state => state.CartProductlist)
 
 
   //*........................................................................STATE................................................................//
@@ -75,7 +77,7 @@ function SpecificProduct() {
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
-      items: 3,
+      items: 2,
       slidesToSlide: 1
     }
   };
@@ -91,19 +93,16 @@ function SpecificProduct() {
 
 
 
-  const CartProductlist = useSelector(state => state.CartProductlist)
-  let RemoveDuplicatcart = CartProductlist.CartProduc.map(elm => JSON.stringify(elm));
-  let RemoveDuplicatcart1 = JSON.stringify(Specificproduct.data)
+
 
   function handleinterastedProducts(id) {
     navigate(`${id}`)
   }
 
-  let cartQuntity = Object.assign({}, Specificproduct.data, { Quntity: 1 })
 
   // console.log(cartQuntity);
   function handleAddtocart() {
-    if (RemoveDuplicatcart.includes(RemoveDuplicatcart1)) {
+    if (CartProductlist.CartProduc.map(elm => elm.id).includes(cartQuntity.id)) {
       setTimeout(() => {
         setCartItemalradyloder(false)
 
@@ -130,7 +129,7 @@ function SpecificProduct() {
       </div>
     )
   }
-  console.log(CartProductlist.CartProduc);
+  // console.log(RemoveDuplicatcart2);
   return (
     <>
 
@@ -142,9 +141,9 @@ function SpecificProduct() {
         {CartItemalradyloder ? <Alert variant='filled' severity='warning'  >product already in cart</Alert> : null}
         {CartItemalradyloder ? <LinearProgress color='warning' /> : null}
       </Box>
-      <Grid container width='100%' height='100vh' >
-        <Grid item xl={5} sm={12} >
-          <Box height='100%'  >
+      <Grid container width='100%' height='100vh'  >
+        <Grid item xl={5} sm={12}  >
+          <Box height='100%'   >
             <Box display='flex' height="95%" margin='20px'   >
               <Box height='60%' width='10%' >
                 {
@@ -155,9 +154,9 @@ function SpecificProduct() {
                   }) : null
                 }
               </Box>
-              <Box height='100%' width='90%' >
-                <Box display='flex' justifyContent='center' alignItems='center' height='70%' width='100%' >
-                  <img width='420px' height='420px' src={sideimage} alt="error" />
+              <Box height='100%' width='90%'  >
+                <Box display='flex' justifyContent='center' alignItems='center' height='70%' width='100%'  >
+                  <img width='75%' height='85%' src={sideimage} alt="error" />
                 </Box>
                 <Box display='flex' justifyContent='center' alignItems='center' height='30%' width='100%' >
                   <Button onClick={handleAddtocart} color='warning' variant='contained' sx={{ marginRight: '8px', padding: '20px', height: '30%', width: "80%", backgroundColor: '#ff9f00' }} size='large'>Add to Cart</Button>
@@ -205,37 +204,40 @@ function SpecificProduct() {
 
           </Box>
         </Grid>
-        <Grid item xl={12} sm={12}>
 
-          <Box width='100%' height='100%'>
-            <Typography mx={5} variant='h5'> You might be interested in</Typography>
-            <Box  >
-              <Carousel responsive={responsive}
-                swipeable={false}
-                draggable={false}
-                infinite={false}
-                dotListClass="custom-dot-list-style"
-                itemClass="carousel-item-padding-40-px"
-                containerClass="carousel-container">
 
-                {
-                  interastedProduct.map(ele => {
-                    return (
-                      <Box display='flex' flexDirection='column' justifyContent='center' alignItems='center' key={ele.id}>
+        <Box width='100%' height='100%'>
+          <Typography mx={5} variant='h5'> You might be interested in</Typography>
+          <Box  >
+            <Carousel responsive={responsive}
+              swipeable={true}
+              draggable={false}
+              infinite={false}
+              autoPlay={false}
+              autoPlaySpeed={false}
+              removeArrowOnDeviceType={["tablet", "mobile"]}
+              dotListClass="custom-dot-list-style"
+              itemClass="carousel-item-padding-40-px"
+              containerClass="carousel-container">
 
-                        <img onClick={() => handleinterastedProducts(ele.id)} style={{ width: '200px', height: '200px', borderRadius: '5px' }} src={ele.thumbnail} alt="error" />
+              {
+                interastedProduct.map(ele => {
+                  return (
+                    <Box display='flex' flexDirection='column' justifyContent='center' alignItems='center' key={ele.id}>
 
-                        <span  >{ele.title}</span>
+                      <img onClick={() => handleinterastedProducts(ele.id)} style={{ width: '60%', height: '60%', borderRadius: '5px' }} src={ele.thumbnail} alt="error" />
 
-                      </Box>
-                    )
-                  })
-                }
+                      <span  >{ele.title}</span>
 
-              </Carousel>
-            </Box>
+                    </Box>
+                  )
+                })
+              }
+
+            </Carousel>
           </Box>
-        </Grid>
+        </Box>
+
       </Grid>
 
     </>
@@ -244,3 +246,5 @@ function SpecificProduct() {
 
 export default SpecificProduct
 
+ // let RemoveDuplicatcart = CartProductlist.CartProduc.map(elm => JSON.stringify(elm));
+  // let RemoveDuplicatcart1 = JSON.stringify(cartQuntity)

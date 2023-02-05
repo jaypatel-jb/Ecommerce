@@ -25,6 +25,7 @@ const SpecificProductList = createSlice({
         builder.addCase(fatchproductlist.rejected, (state, action) => {
             state.status = status.ERROR
         })
+        
     }
 })
 

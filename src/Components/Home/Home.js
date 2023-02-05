@@ -31,20 +31,25 @@ function Home() {
 
     return (
         <>
-            <Carousel responsive={responsive}
-                swipeable={false}
-                draggable={false}
-                infinite={true}
-                autoPlay={true}
-                autoPlaySpeed={6000}
-                dotListClass="custom-dot-list-style"
-                itemClass="carousel-item-padding-40-px"
-                containerClass="carousel-container">
 
-                <img id='img_1' src="/images/baner1.jpg" alt="baner-1" />
-                <img id='img_2' src="/images/baner3.webp" alt="baner-2" />
+                <Carousel responsive={responsive}
+                    swipeable={true}
+                    draggable={false}
+                    infinite={true}
+                    autoPlay={true}
+                    autoPlaySpeed={6000}
+                    removeArrowOnDeviceType={["tablet", "mobile"]}
+                    dotListClass="custom-dot-list-style"
+                    itemClass="carousel-item-padding-40-px"
+                    containerClass="carousel-container">
 
-            </Carousel>
+
+
+                    <img id='img_2' src="/images/baner3.webp" alt="baner-2" />
+                    <img id='img_1' src="/images/baner1.jpg" alt="baner-1" />
+
+                </Carousel>
+  
             {
                 Productcategories ? Productcategories.data
                     .map((elm, index) => {
