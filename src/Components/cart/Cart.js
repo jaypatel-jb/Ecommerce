@@ -11,10 +11,12 @@ import {
   handleTotalAmount,
   RemoveItem,
 } from "../../Redux/CartSlice";
+import { useNavigate } from "react-router";
 function Cart() {
   let dispatch = useDispatch();
+  const Navigate = useNavigate();
   const CartProductlist = useSelector((state) => state.CartProductlist);
-
+  const { IsLogin } = useSelector((state) => state.LoginSlice);
   const HandleBtnPlush1 = (productID) => {
     dispatch(HandleBtnPlush(productID));
   };
@@ -31,17 +33,12 @@ function Cart() {
 
     dispatch(handleTotalAmount());
   }, [CartProductlist.CartProduc]);
-
+  function handleChekout() {
+    IsLogin ? Navigate("/chekout") : Navigate("/Login", { replace: true });
+  }
   return (
     <>
-      <Grid
-        container
-        margin={0}
-        padding={0}
-        width="100%"
-        bgcolor="#ebebeb"
-        border="2px solid black"
-      >
+      <Grid container margin={0} padding={0} width="100%" bgcolor="#ebebeb">
         <Grid item xl={8} md={8} sm={12} xs={12}>
           <Box
             overflow="scroll"
@@ -51,7 +48,6 @@ function Cart() {
             0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset"
             width="100%"
             height="80vh"
-            border="2px solid black"
           >
             {CartProductlist.CartProduc.map((elm) => {
               let currencyConvert = Priceconverter(elm.price);
@@ -73,8 +69,8 @@ function Cart() {
                       {/* <img /> */}
                       <Typography
                         component="img"
-                        width="100%"
-                        height="100%"
+                        width="95%"
+                        height="95%"
                         marginTop="5px"
                         src={elm.thumbnail}
                         alt={elm.title}
@@ -151,17 +147,20 @@ function Cart() {
             bgcolor="white"
             boxShadow="rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset"
             width="90%"
-            height="50vh"
+            minHeight="40vh"
             borderRadius="8px 8px 8px 8px"
+            border="2px solid black"
+            display="flex"
+            flexDirection="column"
           >
-            <Box width="100%" height="15%" display="flex" alignItems="center">
-              <Typography marginLeft={2} variant="h5">
+            {/* <Box width="100%" height="15%" display="flex" alignItems="center" border='2px solid red'>
+              <Typography marginLeft={2} variant="h5" mt={3} mb={3}>
                 PRICE DETAILS
               </Typography>
             </Box>
             <Divider />
-            <Box width="100%"  >
-              <Box display="flex" justifyContent="space-between">
+            <Box width="100%" border='2px solid blue'>
+              <Box display="flex" justifyContent="space-between" border='2px solid green'>
                 <Typography padding={2} component="span" variant="h6">
                   Price (
                   {CartProductlist.CartProduc.length === 0
@@ -178,7 +177,7 @@ function Cart() {
                   ₹ {Priceconverter(CartProductlist.TotalPrice)}
                 </Typography>
               </Box>
-              <Box display="flex" justifyContent="space-between">
+              <Box display="flex" justifyContent="space-between" border='2px solid yellow'>
                 <Typography padding={2} component="span" variant="h6">
                   Discount
                 </Typography>
@@ -191,7 +190,7 @@ function Cart() {
                   -{Priceconverter(CartProductlist.Discount)}
                 </Typography>
               </Box>
-              <Box display="flex" justifyContent="space-between">
+              <Box display="flex" justifyContent="space-between" border='2px solid black'>
                 <Typography padding={2} component="span" variant="h6">
                   Delivery Charges
                 </Typography>
@@ -206,7 +205,7 @@ function Cart() {
               </Box>
               <Divider />
               <Box display="flex" justifyContent="space-between">
-                <Typography padding={2} component="span" variant="h5">
+                <Typography padding={2} component="span" variant="h5" >
                   Total Amount
                 </Typography>
                 <Typography
@@ -219,7 +218,22 @@ function Cart() {
                 </Typography>
               </Box>
             </Box>
-            <Divider />
+            <Divider /> */}
+            <Box
+              width="100%"
+              display="flex"
+              justifyContent="center"
+              alignSelf="flex-end"
+              border="5px solid green"
+            >
+              <Button
+                onClick={handleChekout}
+                sx={{ width: "100%" }}
+                variant="contained"
+              >
+                Chekout
+              </Button>
+            </Box>
           </Box>
         </Grid>
       </Grid>
@@ -228,29 +242,3 @@ function Cart() {
 }
 // border='2px solid black'
 export default Cart;
-
-// console.log(CartProductlist.CartProduc
-// );
-// localStorage.setItem('cartData', JSON.stringify(CartProductlist1.CartProduc))
-// const CartProductlist = JSON.parse(localStorage.getItem('cartData'))
-
-//add logic
-
-// let pQantity = Quntity.map(elm => {
-
-//   if (elm.id === productID) {
-//     if (elm.Quntity >= elm.stock) {
-//       return {
-//         ...elm,
-//         Quntity: elm.stock
-//       }
-//     }
-//     return {
-//       ...elm,
-//       Quntity: elm.Quntity + 1
-//     }
-
-//   }
-//   return elm
-// })
-// setQuntity(pQantity)

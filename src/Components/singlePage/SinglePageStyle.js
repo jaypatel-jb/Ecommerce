@@ -43,5 +43,5 @@ export const Grid_Style = {
     margin: '0',
     pading: '0',
     width: '98%',
-    height: '100%'
+    // height: '100%'
 }
