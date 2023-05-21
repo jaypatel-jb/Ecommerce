@@ -40,7 +40,7 @@ function Navbar() {
       <header>
         <nav className="navbar">
           <div>
-            <NavLink className="listli" to={"/"}>
+            <NavLink className="listli" to={"/"} rel="noopener noreferrer">
               <IoLogoSlack className="logo" />
             </NavLink>
           </div>
@@ -78,7 +78,7 @@ function Navbar() {
                 )}
               </li>
               <li id="cartLogowithBadge">
-                <NavLink to={"/Cart"}>
+                <NavLink to={"/Cart"} rel="noopener noreferrer">
                   <Badge
                     badgeContent={CartProductlist.CartProduc.length}
                     color="primary"

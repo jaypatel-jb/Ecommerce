@@ -149,18 +149,17 @@ function Cart() {
             width="90%"
             minHeight="40vh"
             borderRadius="8px 8px 8px 8px"
-            border="2px solid black"
             display="flex"
             flexDirection="column"
           >
-            {/* <Box width="100%" height="15%" display="flex" alignItems="center" border='2px solid red'>
+            <Box width="100%" height="15%" display="flex" alignItems="center">
               <Typography marginLeft={2} variant="h5" mt={3} mb={3}>
                 PRICE DETAILS
               </Typography>
             </Box>
             <Divider />
-            <Box width="100%" border='2px solid blue'>
-              <Box display="flex" justifyContent="space-between" border='2px solid green'>
+            <Box width="100%">
+              <Box display="flex" justifyContent="space-between">
                 <Typography padding={2} component="span" variant="h6">
                   Price (
                   {CartProductlist.CartProduc.length === 0
@@ -177,7 +176,7 @@ function Cart() {
                   ₹ {Priceconverter(CartProductlist.TotalPrice)}
                 </Typography>
               </Box>
-              <Box display="flex" justifyContent="space-between" border='2px solid yellow'>
+              <Box display="flex" justifyContent="space-between">
                 <Typography padding={2} component="span" variant="h6">
                   Discount
                 </Typography>
@@ -190,7 +189,7 @@ function Cart() {
                   -{Priceconverter(CartProductlist.Discount)}
                 </Typography>
               </Box>
-              <Box display="flex" justifyContent="space-between" border='2px solid black'>
+              <Box display="flex" justifyContent="space-between">
                 <Typography padding={2} component="span" variant="h6">
                   Delivery Charges
                 </Typography>
@@ -205,7 +204,7 @@ function Cart() {
               </Box>
               <Divider />
               <Box display="flex" justifyContent="space-between">
-                <Typography padding={2} component="span" variant="h5" >
+                <Typography padding={2} component="span" variant="h5">
                   Total Amount
                 </Typography>
                 <Typography
@@ -218,13 +217,14 @@ function Cart() {
                 </Typography>
               </Box>
             </Box>
-            <Divider /> */}
+            <Divider />
             <Box
               width="100%"
               display="flex"
               justifyContent="center"
-              alignSelf="flex-end"
-              border="5px solid green"
+              alignSelf="end"
+              mt="auto"
+              mr="auto"
             >
               <Button
                 onClick={handleChekout}
