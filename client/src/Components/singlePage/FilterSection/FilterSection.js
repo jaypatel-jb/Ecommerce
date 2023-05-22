@@ -101,7 +101,7 @@ function FilterSection({ branddata2 }) {
         <Grid item lg={12} xs={12} md={12} sm={12}>
           <Box sx={{ width: "100%", height: " fit-content" }}>
             <ul className="FilterSection">
-              {data.map((elm, index) => {
+              {data.Data?.map((elm, index) => {
                 return (
                   <NavLink
                     className="FilterSection_Link"
