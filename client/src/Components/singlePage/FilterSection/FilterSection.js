@@ -23,11 +23,10 @@ function FilterSection({ branddata2 }) {
 
   let { data } = useSelector((state) => state.Productcategories);
   const ProductsList = useSelector((state) => state.SpecificProductList);
-
   // *...................................................................<STATE & VER>........................................................//
   let bd;
   let navigate = useNavigate();
-  let branddata = ProductsList.data.products;
+  let branddata = ProductsList.data;
   let Brandarry = branddata ? branddata.map((elm) => elm.brand) : [];
   let brand = [...new Set(Brandarry)];
   const [state, setstate] = useState([]);

@@ -52,7 +52,6 @@ function SinglePage() {
   function handleMenu(e) {
     setselect_Menu(e.target.value);
   }
-  // console.log(Producfilterlist);
 
   useEffect(() => {
     if (Branddata) {
