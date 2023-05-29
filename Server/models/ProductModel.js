@@ -16,57 +16,72 @@ export const ProductSchema = new mongoose.Schema({
     type: Date,
     default: Date.now(),
   },
-  title: {
+  id: {
     type: String,
-    require: [true, "title is require field"],
+    require: [true, "id is require field"],
     trim: true,
   },
-
-  description: {
+  Name: {
     type: String,
-    require: [true, "description is require field"],
+    require: [true, "Name is require field"],
     trim: true,
   },
-  price: {
-    type: Number,
-    require: [true, "price is require field"],
-    trim: true,
-  },
-  discountPercentage: {
-    type: Number,
-    trim: true,
-  },
-  rating: {
-    type: Number,
-    require: [true, "rating is require field"],
-    trim: true,
-  },
-  stock: {
-    type: Number,
-    require: [true, "stock is require field"],
-    trim: true,
-  },
-  brand: {
-    type: String,
-    require: [true, "brand is require field"],
-    unique: true,
-    trim: true,
-  },
-  category: {
-    type: String,
-    require: [true, "category is require field"],
-    trim: true,
-  },
-  thumbnail: {
-    type: String,
-    require: [true, "thumbnail is require field"],
-    trim: true,
-  },
-
-  images: {
-    type: [String],
+  data: {
+    type: [],
     require: [true, "images is require field"],
-    trim: true,
-  },
+
+  }
+  // title: {
+  //   type: String,
+  //   require: [true, "title is require field"],
+  //   trim: true,
+  // },
+
+  // description: {
+  //   type: String,
+  //   require: [true, "description is require field"],
+  //   trim: true,
+  // },
+  // price: {
+  //   type: Number,
+  //   require: [true, "price is require field"],
+  //   trim: true,
+  // },
+  // discountPercentage: {
+  //   type: Number,
+  //   trim: true,
+  // },
+  // rating: {
+  //   type: Number,
+  //   require: [true, "rating is require field"],
+  //   trim: true,
+  // },
+  // stock: {
+  //   type: Number,
+  //   require: [true, "stock is require field"],
+  //   trim: true,
+  // },
+  // brand: {
+  //   type: String,
+  //   require: [true, "brand is require field"],
+  //   unique: true,
+  //   trim: true,
+  // },
+  // category: {
+  //   type: String,
+  //   require: [true, "category is require field"],
+  //   trim: true,
+  // },
+  // thumbnail: {
+  //   type: String,
+  //   require: [true, "thumbnail is require field"],
+  //   trim: true,
+  // },
+
+  // images: {
+  //   type: [String],
+  //   require: [true, "images is require field"],
+  //   trim: true,
+  // },
 });
 export const Product = mongoose.model("products", ProductSchema);
